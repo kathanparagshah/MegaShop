@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MegaShop - Your One-Stop E-Commerce Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="auth-search.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>MegaShop</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="deals.html">Deals</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="#" class="search-icon"><i class="fas fa-search"></i></a>
+                <a href="#" class="account-icon"><i class="fas fa-user"></i></a>
+                <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Shop the Latest Trends</h2>
+                <p>Discover amazing products with fast delivery and exclusive deals.</p>
+                <a href="shop.html?all=true" class="btn btn-primary">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-categories">
+        <div class="container">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Electronics">
+                    <h3>Electronics</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Fashion">
+                    <h3>Fashion</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Home & Kitchen">
+                    <h3>Home & Kitchen</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1522338242992-e1a54906a8da?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Beauty">
+                    <h3>Beauty</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Electronics</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Wireless Headphones">
+                        <div class="product-tags">
+                            <span class="tag tag-new">New</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Sony WH-1000XM4 Headphones</h3>
+                        <div class="product-price">
+                            <span class="current-price">$299.99</span>
+                            <span class="old-price">$349.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(245)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Apple Watch Series 7">
+                        <div class="product-tags">
+                            <span class="tag tag-sale">Sale</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Apple Watch Series 7</h3>
+                        <div class="product-price">
+                            <span class="current-price">$379.99</span>
+                            <span class="old-price">$429.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(189)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Wireless Earbuds">
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Samsung Galaxy Buds Pro</h3>
+                        <div class="product-price">
+                            <span class="current-price">$149.99</span>
+                            <span class="old-price">$199.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(132)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Canon EOS R6 Camera">
+                        <div class="product-tags">
+                            <span class="tag tag-bestseller">Bestseller</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Canon EOS R6 Camera</h3>
+                        <div class="product-price">
+                            <span class="current-price">$2,199.99</span>
+                            <span class="old-price">$2,499.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(87)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="#" class="btn btn-secondary">View All Electronics</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Fashion</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Leather Jacket">
+                        <div class="product-tags">
+                            <span class="tag tag-new">New</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Premium Leather Jacket</h3>
+                        <div class="product-price">
+                            <span class="current-price">$199.99</span>
+                            <span class="old-price">$249.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(76)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Sneakers">
+                        <div class="product-tags">
+                            <span class="tag tag-sale">Sale</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Urban Sneakers</h3>
+                        <div class="product-price">
+                            <span class="current-price">$89.99</span>
+                            <span class="old-price">$119.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(124)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1556048219-bb6978360b84?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Designer Handbag">
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Designer Handbag</h3>
+                        <div class="product-price">
+                            <span class="current-price">$159.99</span>
+                            <span class="old-price">$199.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(98)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Sunglasses">
+                        <div class="product-tags">
+                            <span class="tag tag-bestseller">Bestseller</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Premium Sunglasses</h3>
+                        <div class="product-price">
+                            <span class="current-price">$79.99</span>
+                            <span class="old-price">$99.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(156)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="#" class="btn btn-secondary">View All Fashion</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Home & Kitchen</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1585515320310-259814833e62?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Coffee Maker">
+                        <div class="product-tags">
+                            <span class="tag tag-new">New</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Premium Coffee Maker</h3>
+                        <div class="product-price">
+                            <span class="current-price">$129.99</span>
+                            <span class="old-price">$159.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(112)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Kitchen Mixer">
+                        <div class="product-tags">
+                            <span class="tag tag-sale">Sale</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Stand Mixer</h3>
+                        <div class="product-price">
+                            <span class="current-price">$249.99</span>
+                            <span class="old-price">$299.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(87)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Air Purifier">
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Smart Air Purifier</h3>
+                        <div class="product-price">
+                            <span class="current-price">$179.99</span>
+                            <span class="old-price">$219.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(64)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Cookware Set">
+                        <div class="product-tags">
+                            <span class="tag tag-bestseller">Bestseller</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Non-Stick Cookware Set</h3>
+                        <div class="product-price">
+                            <span class="current-price">$199.99</span>
+                            <span class="old-price">$249.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(143)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="#" class="btn btn-secondary">View All Home & Kitchen</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Beauty</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Skincare Set">
+                        <div class="product-tags">
+                            <span class="tag tag-new">New</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Premium Skincare Set</h3>
+                        <div class="product-price">
+                            <span class="current-price">$89.99</span>
+                            <span class="old-price">$119.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(98)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Makeup Palette">
+                        <div class="product-tags">
+                            <span class="tag tag-sale">Sale</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Luxury Makeup Palette</h3>
+                        <div class="product-price">
+                            <span class="current-price">$49.99</span>
+                            <span class="old-price">$69.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(76)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Perfume">
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Designer Perfume</h3>
+                        <div class="product-price">
+                            <span class="current-price">$79.99</span>
+                            <span class="old-price">$99.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(124)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Hair Care Set">
+                        <div class="product-tags">
+                            <span class="tag tag-bestseller">Bestseller</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Professional Hair Care Set</h3>
+                        <div class="product-price">
+                            <span class="current-price">$59.99</span>
+                            <span class="old-price">$79.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="
+
+    <section class="special-offers">
+        <div class="container">
+            <div class="offer-banner">
+                <div class="offer-content">
+                    <h2>Special Offer</h2>
+                    <p>Get 20% off on all electronics this week!</p>
+                    <a href="#" class="btn btn-primary">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"I love shopping at MegaShop! The products are high quality and the delivery is always on time."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://via.placeholder.com/50" alt="Customer">
+                        <div class="author-info">
+                            <h4>John Smith</h4>
+                            <p>Loyal Customer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The customer service is exceptional. They helped me resolve an issue with my order quickly and efficiently."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://via.placeholder.com/50" alt="Customer">
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Happy Shopper</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Subscribe to Our Newsletter</h2>
+                <p>Get the latest updates on new products and special offers.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>MegaShop</h3>
+                    <p>Your one-stop destination for all your shopping needs.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="#">All Products</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Best Sellers</a></li>
+                        <li><a href="#">Special Offers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 MegaShop. All rights reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="navigation.js"></script>
+    <script src="link-handler.js"></script>
+    <script src="search.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

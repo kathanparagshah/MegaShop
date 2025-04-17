@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronics - MegaShop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Category Page Specific Styles */
+        .category-section {
+            padding: 80px 0;
+        }
+        
+        .category-banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1550009158-9ebf69173e03?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            border-radius: 8px;
+            padding: 60px;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .category-banner h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .category-banner p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .subcategory-nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .subcategory-link {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .subcategory-link:hover,
+        .subcategory-link.active {
+            background-color: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .category-footer {
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>MegaShop</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="deals.html">Deals</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="#" class="search-icon"><i class="fas fa-search"></i></a>
+                <a href="#" class="account-icon"><i class="fas fa-user"></i></a>
+                <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="category-section">
+        <div class="container">
+            <div class="category-banner">
+                <h2>Electronics</h2>
+                <p>Discover the latest technology and gadgets. From smartphones to home entertainment, find everything you need to stay connected.</p>
+                <a href="shop.html?category=electronics" class="btn btn-primary">Shop All Electronics</a>
+            </div>
+            
+            <div class="subcategory-nav">
+                <a href="electronics-smartphones.html" class="subcategory-link">Smartphones</a>
+                <a href="electronics-laptops.html" class="subcategory-link">Laptops</a>
+                <a href="electronics-audio.html" class="subcategory-link active">Audio</a>
+                <a href="electronics-cameras.html" class="subcategory-link">Cameras</a>
+                <a href="electronics-wearables.html" class="subcategory-link">Wearables</a>
+            </div>
+            
+            <h2 class="section-title">Featured Electronics</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Wireless Headphones">
+                        <div class="product-tags">
+                            <span class="tag tag-new">New</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Sony WH-1000XM4 Headphones</h3>
+                        <div class="product-price">
+                            <span class="current-price">$299.99</span>
+                            <span class="old-price">$349.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(245)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Wireless Earbuds">
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Apple AirPods Pro</h3>
+                        <div class="product-price">
+                            <span class="current-price">$199.99</span>
+                            <span class="old-price">$249.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(189)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Wireless Earbuds">
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Samsung Galaxy Buds Pro</h3>
+                        <div class="product-price">
+                            <span class="current-price">$149.99</span>
+                            <span class="old-price">$199.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(132)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1578319439584-104c94d37305?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Bluetooth Speaker">
+                        <div class="product-tags">
+                            <span class="tag tag-bestseller">Bestseller</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>JBL Flip 5 Bluetooth Speaker</h3>
+                        <div class="product-price">
+                            <span class="current-price">$99.99</span>
+                            <span class="old-price">$119.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(98)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1585298723682-7115561c51b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Headphone Stand">
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Aluminum Headphone Stand</h3>
+                        <div class="product-price">
+                            <span class="current-price">$29.99</span>
+                            <span class="old-price">$39.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(45)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1575919220112-0d5a2dc6a4b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Noise Cancelling Headphones">
+                        <div class="product-tags">
+                            <span class="tag tag-sale">Sale</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="fas fa-heart"></i></button>
+                            <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Bose QuietComfort 45</h3>
+                        <div class="product-price">
+                            <span class="current-price">$279.99</span>
+                            <span class="old-price">$329.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(156)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category-footer">
+                <a href="shop.html?category=electronics" class="btn btn-secondary">View All Electronics</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>MegaShop</h3>
+                    <p>Your one-stop destination for all your shopping needs. Quality products, competitive prices, and exceptional customer service.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="deals.html">Deals</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">My Account</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Main Street, New York, NY 10001</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> support@megashop.com</li>
+                        <li><i class="fas fa-clock"></i> Monday-Friday: 9am-8pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 MegaShop. All Rights Reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+    <script src="script.js"></script>
+    <script src="link-handler.js"></script>
+</body>
+</html>

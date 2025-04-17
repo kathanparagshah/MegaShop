@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - MegaShop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Shop Page Specific Styles */
+        .shop-section {
+            padding: 80px 0;
+        }
+        
+        .shop-grid {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .shop-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .filter-sidebar {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+        
+        .filter-group {
+            margin-bottom: 25px;
+        }
+        
+        .filter-group h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .filter-group ul {
+            margin-left: 5px;
+        }
+        
+        .filter-group li {
+            margin-bottom: 10px;
+        }
+        
+        .filter-group label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .filter-group input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        
+        .price-range {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .price-range input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .filter-buttons button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .apply-filter {
+            background-color: #007bff;
+            color: #fff;
+        }
+        
+        .apply-filter:hover {
+            background-color: #0069d9;
+        }
+        
+        .reset-filter {
+            background-color: #f8f9fa;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+        
+        .reset-filter:hover {
+            background-color: #e9ecef;
+        }
+        
+        .shop-content {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .shop-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            background-color: #fff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .shop-header h2 {
+            font-size: 24px;
+            margin: 0;
+        }
+        
+        .shop-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .sort-by select {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .view-options {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .view-option {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .view-option.active,
+        .view-option:hover {
+            background-color: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-grid.list-view {
+            grid-template-columns: 1fr;
+        }
+        
+        .product-grid.list-view .product-card {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .product-grid.list-view .product-image {
+            flex: 0 0 250px;
+        }
+        
+        .product-grid.list-view .product-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        
+        .pagination-item {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ddd;
+            margin: 0 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .pagination-item:hover,
+        .pagination-item.active {
+            background-color: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
+        
+        .featured-collections {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .collection-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 300px;
+        }
+        
+        .collection-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .collection-card:hover .collection-image {
+            transform: scale(1.05);
+        }
+        
+        .collection-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            color: #fff;
+        }
+        
+        .collection-overlay h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .collection-overlay p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>MegaShop</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Deals</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="#" class="search-icon"><i class="fas fa-search"></i></a>
+                <a href="#" class="account-icon"><i class="fas fa-user"></i></a>
+                <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h2>Shop All Products</h2>
+            <p>Browse our extensive collection of high-quality products.</p>
+        </div>
+    </section>
+
+    <section class="shop-section">
+        <div class="container">
+            <div class="shop-grid">
+                <div class="filter-sidebar">
+                    <h3>Filter Products</h3>
+                    <div class="filter-group">
+                        <h3>Categories</h3>
+                        <ul>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="category" value="electronics">
+                                    Electronics
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="category" value="fashion">
+                                    Fashion
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="category" value="home-kitchen">
+                                    Home & Kitchen
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="category" value="beauty">
+                                    Beauty
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="category" value="sports">
+                                    Sports & Outdoors
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="category" value="books">
+                                    Books & Media
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="category" value="toys">
+                                    Toys & Games
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="filter-group">
+                        <h3>Price Range</h3>
+                        <div class="price-range">
+                            <input type="number" placeholder="Min" min="0">
+                            <span>to</span>
+                            <input type="number" placeholder="Max" min="0">
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <h3>Brand</h3>
+                        <ul>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="brand" value="apple">
+                                    Apple
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="brand" value="samsung">
+                                    Samsung
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="brand" value="sony">
+                                    Sony
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="brand" value="nike">
+                                    Nike
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="brand" value="adidas">
+                                    Adidas
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="filter-group">
+                        <h3>Rating</h3>
+                        <ul>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="rating" value="5">
+                                    <div class="product-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="rating" value="4">
+                                    <div class="product-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="rating" value="3">
+                                    <div class="product-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="filter-buttons">
+                        <button class="apply-filter">Apply Filters</button>
+                        <button class="reset-filter">Reset</button>
+                    </div>
+                </div>
+                <div class="shop-content">
+                    <div class="shop-header">
+                        <h2>All Products <span>(24 items)</span></h2>
+                        <div class="shop-controls">
+                            <div class="sort-by">
+                                <select>
+                                    <option value="featured">Featured</option>
+                                    <option value="price-low">Price: Low to High</option>
+                                    <option value="price-high">Price: High to Low</option>
+                                    <option value="newest">Newest First</option>
+                                    <option value="rating">Top Rated</option>
+                                </select>
+                            </div>
+                            <div class="view-options">
+                                <div class="view-option active" data-view="grid">
+                                    <i class="fas fa-th"></i>
+                                </div>
+                                <div class="view-option" data-view="list">
+                                    <i class="fas fa-list"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-grid">
+                        <!-- Product Card 1 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Wireless Headphones">
+                                <div class="product-tags">
+                                    <span class="tag tag-new">New</span>
+                                    <span class="tag tag-sale">-20%</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="action-btn"><i class="far fa-heart"></i></button>
+                                    <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                                    <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Wireless Headphones</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$79.99</span>
+                                    <span class="old-price">$99.99</span>
+                                </div>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>(45)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product Card 2 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Smart Watch">
+                                <div class="product-tags">
+                                    <span class="tag tag-bestseller">Best Seller</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="action-btn"><i class="far fa-heart"></i></button>
+                                    <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                                    <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Smart Watch</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$149.99</span>
+                                </div>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>(78)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product Card 3 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Smart Speaker">
+                                <div class="product-actions">
+                                    <button class="action-btn"><i class="far fa-heart"></i></button>
+                                    <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                                    <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Smart Speaker</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$89.99</span>
+                                </div>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>(32)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product Card 4 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Wireless Earbuds">
+                                <div class="product-tags">
+                                    <span class="tag tag-sale">-15%</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="action-btn"><i class="far fa-heart"></i></button>
+                                    <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                                    <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Wireless Earbuds</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$59.99</span>
+                                    <span class="old-price">$69.99</span>
+                                </div>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>(56)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- More product cards would be added here -->
+                    </div>
+                    <div class="pagination">
+                        <div class="pagination-item"><i class="fas fa-chevron-left"></i></div>
+                        <div class="pagination-item active">1</div>
+                        <div class="pagination-item">2</div>
+                        <div class="pagination-item">3</div>
+                        <div class="pagination-item">4</div>
+                        <div class="pagination-item"><i class="fas fa-chevron-right"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-collections">
+        <div class="container">
+            <h2 class="section-title">Featured Collections</h2>
+            <div class="collection-grid">
+                <div class="collection-card">
+                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Premium Electronics" class="collection-image">
+                    <div class="collection-overlay">
+                        <h3>Premium Electronics</h3>
+                        <p>Discover our high-end electronics collection</p>
+                        <a href="#" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+                <div class="collection-card">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Summer Fashion" class="collection-image">
+                    <div class="collection-overlay">
+                        <h3>Summer Fashion</h3>
+                        <p>Stay cool with our summer collection</p>
+                        <a href="#" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+                <div class="collection-card">
+                    <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Home Essentials" class="collection-image">
+                    <div class="collection-overlay">
+                        <h3>Home Essentials</h3>
+                        <p>Everything you need for your home</p>
+                        <a href="#" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>MegaShop</h3>
+                    <p>Your one-stop destination for all your shopping needs.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="#">All Products</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Best Sellers</a></li>
+                        <li><a href="#">Special Offers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 MegaShop. All rights reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="navigation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // View toggle functionality
+            const viewOptions = document.querySelectorAll('.view-option');
+            const productGrid = document.querySelector('.product-grid');
+            
+            viewOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove active class from all options
+                    viewOptions.forEach(opt => opt.classList.remove('active'));
+                    
+                    // Add active class to clicked option
+                    this.classList.add('active');
+                    
+                    // Toggle grid/list view
+                    const viewType = this.getAttribute('data-view');
+                    if (viewType === 'list') {
+                        productGrid.classList.add('list-view');
+                    } else {
+                        productGrid.classList.remove('list-view');
+                    }
+                });
+            });
+            
+            // Filter functionality
+            const applyFilterBtn = document.querySelector('.apply-filter');
+            const resetFilterBtn = document.querySelector('.reset-filter');
+            
+            if (applyFilterBtn) {
+                applyFilterBtn.addEventListener('click', function() {
+                    // In a real application, this would filter products based on selected criteria
+                    console.log('Applying filters...');
+                    showNotification('Filters applied successfully!');
+                });
+            }
+            
+            if (resetFilterBtn) {
+                resetFilterBtn.addEventListener('click', function() {
+                    // Reset all filter checkboxes and inputs
+                    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                    const inputs = document.querySelectorAll('.price-range input');
+                    
+                    checkboxes.forEach(checkbox => {
+                        checkbox.checked = false;
+                    });
+                    
+                    inputs.forEach(input => {
+                        input.value = '';
+                    });
+                    
+                    console.log('Filters reset...');
+                    showNotification('Filters have been reset!');
+                });
+            }
+            
+            // Pagination functionality
+            const paginationItems = document.querySelectorAll('.pagination-item');
+            
+            paginationItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    if (!this.classList.contains('active') && !this.querySelector('i')) {
+                        paginationItems.forEach(pItem => pItem.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        // In a real application, this would load the corresponding page of products
+                        console.log('Loading page ' + this

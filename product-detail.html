@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail - MegaShop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Product Detail Page Specific Styles */
+        .product-detail-section {
+            padding: 80px 0;
+        }
+        
+        .product-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .product-detail-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .product-gallery {
+            position: relative;
+        }
+        
+        .main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        
+        .thumbnail {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .thumbnail:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-info h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .current-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: #007bff;
+        }
+        
+        .old-price {
+            font-size: 20px;
+            color: #999;
+            text-decoration: line-through;
+            margin-left: 15px;
+        }
+        
+        .product-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .stars {
+            color: #ffc107;
+            margin-right: 10px;
+        }
+        
+        .review-count {
+            color: #666;
+        }
+        
+        .product-description {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .product-meta {
+            margin-bottom: 30px;
+        }
+        
+        .meta-item {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        
+        .meta-label {
+            font-weight: 600;
+            width: 120px;
+        }
+        
+        .product-variations {
+            margin-bottom: 30px;
+        }
+        
+        .variation-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .color-options {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .color-option {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+        
+        .color-option.selected {
+            outline: 2px solid #007bff;
+            outline-offset: 2px;
+        }
+        
+        .size-options {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .size-option {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .size-option:hover {
+            border-color: #007bff;
+        }
+        
+        .size-option.selected {
+            background-color: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ddd;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .quantity-btn:hover {
+            background-color: #e9ecef;
+        }
+        
+        .quantity-input {
+            width: 60px;
+            height: 40px;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-right: none;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .add-to-cart {
+            flex: 1;
+        }
+        
+        .wishlist-btn {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .wishlist-btn:hover {
+            background-color: #f8f9fa;
+            color: #dc3545;
+        }
+        
+        .product-tabs {
+            margin-top: 60px;
+        }
+        
+        .tabs-nav {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 30px;
+        }
+        
+        .tab-btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: #007bff;
+            transition: width 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            color: #007bff;
+        }
+        
+        .tab-btn.active::after {
+            width: 100%;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .related-products {
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>MegaShop</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="deals.html">Deals</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="#" class="search-icon"><i class="fas fa-search"></i></a>
+                <a href="#" class="account-icon"><i class="fas fa-user"></i></a>
+                <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="product-detail-section">
+        <div class="container">
+            <div class="product-detail-grid">
+                <div class="product-gallery">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Sony WH-1000XM4 Headphones" class="main-image">
+                    <div class="thumbnail-grid">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Thumbnail 1" class="thumbnail">
+                        <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Thumbnail 2" class="thumbnail">
+                        <img src="https://images.unsplash.com/photo-1484704849700-f032a568e944?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Thumbnail 3" class="thumbnail">
+                        <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Thumbnail 4" class="thumbnail">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h1>Sony WH-1000XM4 Wireless Noise-Canceling Headphones</h1>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="review-count">245 Reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">$299.99</span>
+                        <span class="old-price">$349.99</span>
+                    </div>
+                    <div class="product-description">
+                        <p>Industry-leading noise cancellation with Dual Noise Sensor technology. Next-level music with Edge-AI, co-developed with Sony Music Studios Tokyo. Up to 30-hour battery life with quick charging (10 min charge for 5 hours of playback). Touch Sensor controls to pause/play/skip tracks, control volume, activate your voice assistant, and answer phone calls.</p>
+                    </div>
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">SKU:</span>
+                            <span>WH1000XM4/B</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Availability:</span>
+                            <span>In Stock</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Category:</span>
+                            <span><a href="electronics.html">Electronics</a>, <a href="electronics-audio.html">Audio</a></span>
+                        </div>
+                    </div>
+                    <div class="product-variations">
+                        <div class="variation-title">Color</div>
+                        <div class="color-options">
+                            <div class="color-option selected" style="background-color: #222;" title="Black"></div>
+                            <div class="color-option" style="background-color: #f5f5f5;" title="Silver"></div>
+                            <div class="color-option" style="background-color: #3a4a6b;" title="Blue"></div>
+                        </div>
+                    </div>
+                    <div class="quantity-selector">
+                        <div class="quantity-btn minus">-</div>
+                        <input type="text" class="quantity-input" value="1" readonly>
+                        <div class="quantity-btn plus">+</div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary add-to-cart" id="add-to-cart-btn">Add to Cart</button>
+                        <div class="wishlist-btn"><i class="far fa-heart"></i></div>
+                    </div>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const addToCartBtn = document.getElementById('add-to-cart-btn');
+                            const quantityInput = document.querySelector('.quantity-input');
+                            const plusBtn = document.querySelector('.quantity-btn.plus');
+                            const minusBtn = document.querySelector('.quantity-btn.minus');
+                            
+                            // Quantity controls
+                            if (plusBtn) {
+                                plusBtn.addEventListener('click', function() {
+                                    let quantity = parseInt(quantityInput.value);
+                                    quantityInput.value = quantity + 1;
+                                });
+                            }
+                            
+                            if (minusBtn) {
+                                minusBtn.addEventListener('click', function() {
+                                    let quantity = parseInt(quantityInput.value);
+                                    if (quantity > 1) {
+                                        quantityInput.value = quantity - 1;
+                                    }
+                                });
+                            }
+                            
+                            // Add to cart button
+                            if (addToCartBtn) {
+                                addToCartBtn.addEventListener('click', function() {
+                                    const productName = document.querySelector('.product-info h1').textContent;
+                                    const productPrice = document.querySelector('.current-price').textContent;
+                                    const quantity = parseInt(document.querySelector('.quantity-input').value) || 1;
+                                    const productImage = document.querySelector('.main-image').src;
+                                    
+                                    // Add to cart
+                                    addToCart({
+                                        name: productName,
+                                        price: productPrice,
+                                        quantity: quantity,
+                                        image: productImage
+                                    });
+                                    
+                                    // Show notification
+                                    showNotification(`${productName} added to cart!`);
+                                });
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+            
+            <div class="product-tabs">
+                <div class="tabs-nav">
+                    <div class="tab-btn active" data-tab="description">Description</div>
+                    <div class="tab-btn" data-tab="specifications">Specifications</div>
+                    <div class="tab-btn" data-tab="reviews">Reviews (245)</div>
+                </div>
+                <div class="tab-content active" id="description">
+                    <h3>Product Description</h3>
+                    <p>Sony's intelligent industry-leading noise canceling headphones with premium sound elevate your listening experience with the ability to personalize and control everything you hear. Get up to 30 hours of battery life with quick charging capabilities, enjoy comfortable to wear all-day designs, and enable instant music pairing with your smartphone.</p>
+                    <p>The WH-1000XM4 headphones blend sophisticated style with exceptional comfort. The lightweight design features newly developed ear pads that comfortably fit around your ears, and the swivel design makes them easy to store in the included carrying case.</p>
+                    <p>With the HD Noise Cancelling Processor QN1, the WH-1000XM4 headphones feature additional microphones that assist in isolating sound while talking on the phone, resulting in improved phone call quality and the reduction of even more high and mid frequency sounds.</p>
+                </div>
+                <div class="tab-content" id="specifications">
+                    <h3>Technical Specifications</h3>
+                    <table class="specs-table">
+                        <tr>
+                            <td><strong>Driver Unit:</strong></td>
+                            <td>40mm, dome type (CCAW Voice coil)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Frequency Response:</strong></td>
+                            <td>4Hz-40,000Hz</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sensitivity:</strong></td>
+                            <td>105dB / mW (1kHz)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bluetooth Version:</strong></td>
+                            <td>5.0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Battery Life:</strong></td>
+                            <td>Up to 30 hours (NC ON), Up to 38 hours (NC OFF)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Charging Time:</strong></td>
+                            <td>3 hours (Full charge), 10 min charge for 5 hours playback</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Weight:</strong></td>
+                            <td>Approx. 254g</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab-content" id="reviews">
+                    <h3>Customer Reviews</h3>
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="reviewer-name">John D.</div>
+                            <div class="review-date">October 15, 2023</div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="review-content">
+                            <p>These headphones are absolutely amazing! The noise cancellation is the best I've ever experienced, and the sound quality is superb. Battery life is excellent too - I can go several days without charging. Highly recommended!</p>
+                        </div>
+                    </div>
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="reviewer-name">Sarah M.</div>
+                            <div class="review-date">September 28, 2023</div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="review-content">
+                            <p>Great headphones overall. The noise cancellation is fantastic for my commute, and they're very comfortable to wear for long periods. My only complaint is that the touch controls can be a bit finicky sometimes. Otherwise, they're perfect!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="related-products">
+                <h2 class="section-title">You May Also Like</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Wireless Earbuds">
+                            <div class="product-actions">
+                                <button class="action-btn"><i class="fas fa-heart"></i></button>
+                                <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Apple AirPods Pro</h3>
+                            <div class="product-price">
+                                <span class="current-price">$199.99</span>
+                                <span class="old-price">$249.99</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(189)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Wireless Earbuds">
+                            <div class="product-actions">
+                                <button class="action-btn"><i class="fas fa-heart"></i></button>
+                                <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Samsung Galaxy Buds Pro</h3>
+                            <div class="product-price">
+                                <span class="current-price">$149.99</span>
+                                <span class="old-price">$199.99</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(132)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1578319439584-104c94d37305?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Bluetooth Speaker">
+                            <div class="product-actions">
+                                <button class="action-btn"><i class="fas fa-heart"></i></button>
+                                <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>JBL Flip 5 Bluetooth Speaker</h3>
+                            <div class="product-price">
+                                <span class="current-price">$99.99</span>
+                                <span class="old-price">$119.99</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(98)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1585298723682-7115561c51b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Headphone Stand">
+                            <div class="product-actions">
+                                <button class="action-btn"><i class="fas fa-heart"></i></button>
+                                <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Aluminum Headphone Stand</h3>
+                            <div class="product-price">
+                                <span class="current-price">$29.99</span>
+                                <span class="old-price">$39.99</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(45)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>MegaShop</h3>
+                    <p>Your one-stop destination for all your shopping needs. Quality products, competitive prices, and exceptional customer service.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="deals.html">Deals</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">My Account</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Main Street, New York, NY 10001</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> support@megashop.com</li>
+                        <li><i class="fas fa-clock"></i> Monday-Friday: 9am-8pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 MegaShop. All Rights Reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Product Detail Page Specific Scripts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Thumbnail click functionality
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const mainImage = document.querySelector('.main-image');
+            
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    mainImage.src = this.src.replace('w=200', 'w=800');
+                });
+            });
+            
+            // Color selection
+            const colorOptions = document.querySelectorAll('.color-option');
+            colorOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    colorOptions.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                });
+            });
+            
+            // Quantity selector
+            const minusBtn = document.querySelector('.quantity-btn.minus');
+            const plusBtn = document.querySelector('.quantity-btn.plus');
+            const quantityInput = document.querySelector('.quantity-input');
+            
+            minusBtn.addEventListener('click', function() {
+                let quantity = parseInt(quantityInput.value);
+                if (quantity > 1) {
+                    quantityInput.value = quantity - 1;
+                }
+            });
+            
+            plusBtn.addEventListener('click', function() {
+                let quantity = parseInt(quantityInput.value);
+                quantityInput.value = quantity + 1;
+            });
+            
+            // Tabs functionality
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    tabBtns.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Add to cart functionality
+            const addToCartBtn = document.querySelector('.add-to-cart');
+            addToCartBtn.addEventListener('click', function() {
+                const productName = document.querySelector('.product-info h1').textContent;
+                const productPrice = document.querySelector('.current-price').textContent;
+                const quantity = parseInt(document.querySelector('.quantity-input').value);
+                
+                // Add the product to cart (using the function from script.js)
+                addToCart({
+                    name: productName,
+                    price: productPrice,
+                    quantity: quantity
+                });
+                
+                // Show a confirmation message
+                showNotification(`${productName} added to cart!`);
+            });
+            
+            // Wishlist functionality
+            const wishlistBtn = document.querySelector('.wishlist-btn');
+            wishlistBtn.addEventListener('click', function() {
+                const productName = document.querySelector('.product-info h1').textContent;
+                
+                this.classList.toggle('active');
+                const heartIcon = this.querySelector('i');

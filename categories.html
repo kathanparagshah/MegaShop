@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - MegaShop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Categories Page Specific Styles */
+        .categories-section {
+            padding: 80px 0;
+        }
+        
+        .category-banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            border-radius: 8px;
+            padding: 60px;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .category-banner h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .category-banner p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .category-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 250px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .category-card:hover .category-image {
+            transform: scale(1.05);
+        }
+        
+        .category-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            color: #fff;
+        }
+        
+        .category-overlay h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .category-overlay p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        .subcategory-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .subcategory-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .subcategory-group {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .subcategory-group h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            color: #007bff;
+        }
+        
+        .subcategory-group ul li {
+            margin-bottom: 10px;
+        }
+        
+        .subcategory-group ul li a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .subcategory-group ul li a:hover {
+            color: #007bff;
+            transform: translateX(5px);
+        }
+        
+        .subcategory-group ul li a span {
+            color: #999;
+            font-size: 14px;
+        }
+        
+        .featured-category {
+            padding: 80px 0;
+        }
+        
+        .featured-category-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .featured-category-header h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        
+        .featured-category-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        .featured-products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 30px;
+        }
+        
+        .category-filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .category-filter {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .category-filter:hover,
+        .category-filter.active {
+            background-color: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>MegaShop</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="deals.html">Deals</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="#" class="search-icon"><i class="fas fa-search"></i></a>
+                <a href="#" class="account-icon"><i class="fas fa-user"></i></a>
+                <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h2>Shop by Categories</h2>
+            <p>Browse our extensive range of products organized by categories.</p>
+        </div>
+    </section>
+
+    <section class="categories-section">
+        <div class="container">
+            <div class="category-banner">
+                <h2>Explore Our Categories</h2>
+                <p>Find exactly what you're looking for by browsing our organized product categories.</p>
+                <a href="#" class="btn btn-primary">View All Products</a>
+            </div>
+            
+            <div class="category-grid">
+                <!-- Category Card 1 -->
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Electronics" class="category-image">
+                    <div class="category-overlay">
+                        <h3>Electronics</h3>
+                        <p>Latest gadgets and tech</p>
+                        <a href="#" class="btn btn-primary">Explore</a>
+                    </div>
+                </div>
+                <!-- Category Card 2 -->
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Fashion" class="category-image">
+                    <div class="category-overlay">
+                        <h3>Fashion</h3>
+                        <p>Trendy clothing and accessories</p>
+                        <a href="#" class="btn btn-primary">Explore</a>
+                    </div>
+                </div>
+                <!-- Category Card 3 -->
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Home & Kitchen" class="category-image">
+                    <div class="category-overlay">
+                        <h3>Home & Kitchen</h3>
+                        <p>Everything for your home</p>
+                        <a href="#" class="btn btn-primary">Explore</a>
+                    </div>
+                </div>
+                <!-- Category Card 4 -->
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1522338242992-e1a54906a8da?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Beauty" class="category-image">
+                    <div class="category-overlay">
+                        <h3>Beauty</h3>
+                        <p>Makeup and skincare products</p>
+                        <a href="#" class="btn btn-primary">Explore</a>
+                    </div>
+                </div>
+                <!-- Category Card 5 -->
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Sports & Outdoors" class="category-image">
+                    <div class="category-overlay">
+                        <h3>Sports & Outdoors</h3>
+                        <p>Equipment for active lifestyles</p>
+                        <a href="#" class="btn btn-primary">Explore</a>
+                    </div>
+                </div>
+                <!-- Category Card 6 -->
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Books & Media" class="category-image">
+                    <div class="category-overlay">
+                        <h3>Books & Media</h3>
+                        <p>Books, movies, and music</p>
+                        <a href="#" class="btn btn-primary">Explore</a>
+                    </div>
+                </div>
+                <!-- Category Card 7 -->
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Toys & Games" class="category-image">
+                    <div class="category-overlay">
+                        <h3>Toys & Games</h3>
+                        <p>Fun for all ages</p>
+                        <a href="#" class="btn btn-primary">Explore</a>
+                    </div>
+                </div>
+                <!-- Category Card 8 -->
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Headphones" class="category-image">
+                    <div class="category-overlay">
+                        <h3>Audio</h3>
+                        <p>Headphones, speakers, and more</p>
+                        <a href="#" class="btn btn-primary">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="subcategory-section">
+        <div class="container">
+            <h2 class="section-title">Browse Subcategories</h2>
+            <div class="subcategory-container">
+                <!-- Subcategory Group 1 -->
+                <div class="subcategory-group">
+                    <h3>Electronics</h3>
+                    <ul>
+                        <li><a href="#">Smartphones <span>(42)</span></a></li>
+                        <li><a href="#">Laptops <span>(38)</span></a></li>
+                        <li><a href="#">Tablets <span>(25)</span></a></li>
+                        <li><a href="#">Cameras <span>(19)</span></a></li>
+                        <li><a href="#">Smart Home <span>(31)</span></a></li>
+                        <li><a href="#">Audio <span>(27)</span></a></li>
+                        <li><a href="#">Wearables <span>(15)</span></a></li>
+                    </ul>
+                </div>
+                <!-- Subcategory Group 2 -->
+                <div class="subcategory-group">
+                    <h3>Fashion</h3>
+                    <ul>
+                        <li><a href="#">Men's Clothing <span>(56)</span></a></li>
+                        <li><a href="#">Women's Clothing <span>(78)</span></a></li>
+                        <li><a href="#">Shoes <span>(45)</span></a></li>
+                        <li><a href="#">Accessories <span>(34)</span></a></li>
+                        <li><a href="#">Jewelry <span>(22)</span></a></li>
+                        <li><a href="#">Watches <span>(18)</span></a></li>
+                        <li><a href="#">Bags <span>(29)</span></a></li>
+                    </ul>
+                </div>
+                <!-- Subcategory Group 3 -->
+                <div class="subcategory-group">
+                    <h3>Home & Kitchen</h3>
+                    <ul>
+                        <li><a href="#">Furniture <span>(48)</span></a></li>
+                        <li><a href="#">Kitchen Appliances <span>(37)</span></a></li>
+                        <li><a href="#">Bedding <span>(24)</span></a></li>
+                        <li><a href="#">Decor <span>(53)</span></a></li>
+                        <li><a href="#">Lighting <span>(31)</span></a></li>
+                        <li><a href="#">Storage <span>(26)</span></a></li>
+                        <li><a href="#">Cookware <span>(19)</span></a></li>
+                    </ul>
+                </div>
+                <!-- Subcategory Group 4 -->
+                <div class="subcategory-group">
+                    <h3>Beauty</h3>
+                    <ul>
+                        <li><a href="#">Skincare <span>(42)</span></a></li>
+                        <li><a href="#">Makeup <span>(38)</span></a></li>
+                        <li><a href="#">Hair Care <span>(27)</span></a></li>
+                        <li><a href="#">Fragrance <span>(19)</span></a></li>
+                        <li><a href="#">Bath & Body <span>(31)</span></a></li>
+                        <li><a href="#">Tools & Accessories <span>(23)</span></a></li>
+                        <li><a href="#">Men's Grooming <span>(15)</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-category">
+        <div class="container">
+            <div class="featured-category-header">
+                <h2>Featured Category: Electronics</h2>
+                <p>Discover the latest and greatest in tech with our curated selection of electronic products.</p>
+            </div>
+            
+            <div class="category-filters">
+                <div class="category-filter active">All</div>
+                <div class="category-filter">Smartphones</div>
+                <div class="category-filter">Laptops</div>
+                <div class="category-filter">Audio</div>
+                <div class="category-filter">Smart Home</div>
+                <div class="category-filter">Wearables</div>
+            </div>
+            
+            <div class="featured-products">
+                <!-- Product Card 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Wireless Headphones">
+                        <div class="product-tags">
+                            <span class="tag tag-new">New</span>
+                            <span class="tag tag-sale">-20%</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="far fa-heart"></i></button>
+                            <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                            <button class="action-btn"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Wireless Headphones</h3>
+                        <div class="product-price">
+                            <span class="current-price">$79.99</span>
+                            <span class="old-price">$99.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(45)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Smart Speaker">
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="far fa-heart"></i></button>
+                            <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                            <button class="action-btn"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Smart Speaker</h3>
+                        <div class="product-price">
+                            <span class="current-price">$89.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(32)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Smart Watch">
+                        <div class="product-tags">
+                            <span class="tag tag-bestseller">Best Seller</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="far fa-heart"></i></button>
+                            <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                            <button class="action-btn"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Smart Watch</h3>
+                        <div class="product-price">
+                            <span class="current-price">$149.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(78)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Wireless Earbuds">
+                        <div class="product-tags">
+                            <span class="tag tag-sale">-15%</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn"><i class="far fa-heart"></i></button>
+                            <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
+                            <button class="action-btn"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Wireless Earbuds</h3>
+                        <div class="product-price">
+                            <span class="current-price">$59.99</span>
+                            <span class="old-price">$69.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(56)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>MegaShop</h3>
+                    <p>Your one-stop destination for all your shopping needs.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="#">All Products</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Best Sellers</a></li>
+                        <li><a href="#">Special Offers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 MegaShop. All rights reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="navigation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Category Filter Functionality
+            const categoryFilters = document.querySelectorAll('.category-filter');
+            
+            categoryFilters.forEach(filter => {
+                filter.addEventListener('click', function() {
+                    // Remove active class from all filters
+                    categoryFilters.forEach(f => f.classList.remove('active'));
+                    
+                    // Add active class to clicked filter
+                    this.classList.add('active');
+                    
+                    // In a real application, this would filter products based on selected category
+                    console.log('Filtering by:', this.textContent);
+                    showNotification(`Showing ${this.textContent} products`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
