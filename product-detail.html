@@ -285,7 +285,7 @@
     <header>
         <div class="container">
             <div class="logo">
-                <h1>MegaShop</h1>
+                <img src="logo.svg" alt="MegaShop Logo">
             </div>
             <nav>
                 <ul>
@@ -332,8 +332,15 @@
                         <span class="current-price">$299.99</span>
                         <span class="old-price">$349.99</span>
                     </div>
-                    <div class="product-description">
-                        <p>Industry-leading noise cancellation with Dual Noise Sensor technology. Next-level music with Edge-AI, co-developed with Sony Music Studios Tokyo. Up to 30-hour battery life with quick charging (10 min charge for 5 hours of playback). Touch Sensor controls to pause/play/skip tracks, control volume, activate your voice assistant, and answer phone calls.</p>
+                    <div class="product-description" id="product-description">
+                        <!-- A brief product summary will be shown here -->
+                        <p>See the full detailed description in the Description tab below.</p>
+                    </div>
+                    <div class="add-to-cart-container" style="margin-bottom: 20px; display: flex; gap: 15px;">
+                        <button class="btn btn-primary add-to-cart" id="add-to-cart-btn">Add to Cart</button>
+                        <div class="wishlist-btn" style="width: 50px; height: 50px; border: 1px solid #ddd; border-radius: 4px; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: all 0.3s ease;">
+                            <i class="far fa-heart"></i>
+                        </div>
                     </div>
                     <div class="product-meta">
                         <div class="meta-item">
@@ -363,8 +370,7 @@
                         <div class="quantity-btn plus">+</div>
                     </div>
                     <div class="product-actions">
-                        <button class="btn btn-primary add-to-cart" id="add-to-cart-btn">Add to Cart</button>
-                        <div class="wishlist-btn"><i class="far fa-heart"></i></div>
+                        <!-- Wishlist button moved next to Add to Cart button -->
                     </div>
                     <script>
                         document.addEventListener('DOMContentLoaded', function() {
@@ -658,8 +664,9 @@
 
     <script src="navigation.js"></script>
     <script src="script.js"></script>
+    <script src="product-detail.js"></script>
     <script>
-        // Product Detail Page Specific Scripts
+        // Additional Product Detail Page Scripts
         document.addEventListener('DOMContentLoaded', function() {
             // Thumbnail click functionality
             const thumbnails = document.querySelectorAll('.thumbnail');

@@ -6,6 +6,7 @@
     <title>Shop - MegaShop</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="enhanced-ui.css">
     <style>
         /* Shop Page Specific Styles */
         .shop-section {
@@ -281,14 +282,14 @@
     <header>
         <div class="container">
             <div class="logo">
-                <h1>MegaShop</h1>
+                <img src="logo.svg" alt="MegaShop Logo">
             </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
-                    <li><a href="#">Categories</a></li>
-                    <li><a href="#">Deals</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="deals.html">Deals</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
@@ -472,119 +473,21 @@
                         </div>
                     </div>
                     <div class="product-grid">
-                        <!-- Product Card 1 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Wireless Headphones">
-                                <div class="product-tags">
-                                    <span class="tag tag-new">New</span>
-                                    <span class="tag tag-sale">-20%</span>
-                                </div>
-                                <div class="product-actions">
-                                    <button class="action-btn"><i class="far fa-heart"></i></button>
-                                    <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
-                                    <button class="action-btn"><i class="fas fa-eye"></i></button>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>Wireless Headphones</h3>
-                                <div class="product-price">
-                                    <span class="current-price">$79.99</span>
-                                    <span class="old-price">$99.99</span>
-                                </div>
-                                <div class="product-rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                    <span>(45)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product Card 2 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Smart Watch">
-                                <div class="product-tags">
-                                    <span class="tag tag-bestseller">Best Seller</span>
-                                </div>
-                                <div class="product-actions">
-                                    <button class="action-btn"><i class="far fa-heart"></i></button>
-                                    <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
-                                    <button class="action-btn"><i class="fas fa-eye"></i></button>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>Smart Watch</h3>
-                                <div class="product-price">
-                                    <span class="current-price">$149.99</span>
-                                </div>
-                                <div class="product-rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <span>(78)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product Card 3 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Smart Speaker">
-                                <div class="product-actions">
-                                    <button class="action-btn"><i class="far fa-heart"></i></button>
-                                    <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
-                                    <button class="action-btn"><i class="fas fa-eye"></i></button>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>Smart Speaker</h3>
-                                <div class="product-price">
-                                    <span class="current-price">$89.99</span>
-                                </div>
-                                <div class="product-rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <span>(32)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product Card 4 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Wireless Earbuds">
-                                <div class="product-tags">
-                                    <span class="tag tag-sale">-15%</span>
-                                </div>
-                                <div class="product-actions">
-                                    <button class="action-btn"><i class="far fa-heart"></i></button>
-                                    <button class="action-btn"><i class="fas fa-shopping-cart"></i></button>
-                                    <button class="action-btn"><i class="fas fa-eye"></i></button>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <h3>Wireless Earbuds</h3>
-                                <div class="product-price">
-                                    <span class="current-price">$59.99</span>
-                                    <span class="old-price">$69.99</span>
-                                </div>
-                                <div class="product-rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <span>(56)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- More product cards would be added here -->
+                        <!-- Products will be loaded dynamically from product_data.csv -->
+                    </div>
+                    <div class="pagination">
+                        <div class="pagination-item"><i class="fas fa-chevron-left"></i></div>
+                        <div class="pagination-item active">1</div>
+                        <div class="pagination-item">2</div>
+                        <div class="pagination-item">3</div>
+                        <div class="pagination-item">4</div>
+                        <div class="pagination-item"><i class="fas fa-chevron-right"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
                     </div>
                     <div class="pagination">
                         <div class="pagination-item"><i class="fas fa-chevron-left"></i></div>
@@ -686,6 +589,7 @@
 
     <script src="script.js"></script>
     <script src="navigation.js"></script>
+    <!-- Removing product-loader.js to avoid conflicts with shop.js -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // View toggle functionality
@@ -696,59 +600,19 @@
                 option.addEventListener('click', function() {
                     // Remove active class from all options
                     viewOptions.forEach(opt => opt.classList.remove('active'));
-                    
                     // Add active class to clicked option
-                    this.classList.add('active');
+                    option.classList.add('active');
                     
                     // Toggle grid/list view
-                    const viewType = this.getAttribute('data-view');
-                    if (viewType === 'list') {
-                        productGrid.classList.add('list-view');
-                    } else {
+                    if (option.classList.contains('grid-view')) {
                         productGrid.classList.remove('list-view');
+                    } else if (option.classList.contains('list-view')) {
+                        productGrid.classList.add('list-view');
                     }
                 });
             });
-            
-            // Filter functionality
-            const applyFilterBtn = document.querySelector('.apply-filter');
-            const resetFilterBtn = document.querySelector('.reset-filter');
-            
-            if (applyFilterBtn) {
-                applyFilterBtn.addEventListener('click', function() {
-                    // In a real application, this would filter products based on selected criteria
-                    console.log('Applying filters...');
-                    showNotification('Filters applied successfully!');
-                });
-            }
-            
-            if (resetFilterBtn) {
-                resetFilterBtn.addEventListener('click', function() {
-                    // Reset all filter checkboxes and inputs
-                    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-                    const inputs = document.querySelectorAll('.price-range input');
-                    
-                    checkboxes.forEach(checkbox => {
-                        checkbox.checked = false;
-                    });
-                    
-                    inputs.forEach(input => {
-                        input.value = '';
-                    });
-                    
-                    console.log('Filters reset...');
-                    showNotification('Filters have been reset!');
-                });
-            }
-            
-            // Pagination functionality
-            const paginationItems = document.querySelectorAll('.pagination-item');
-            
-            paginationItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    if (!this.classList.contains('active') && !this.querySelector('i')) {
-                        paginationItems.forEach(pItem => pItem.classList.remove('active'));
-                        this.classList.add('active');
-                        
-                        // In a real application, this would load the corresponding page of products
-                        console.log('Loading page ' + this
+        });
+    </script>
+    
+    <!-- Load shop.js script for product loading and filtering -->
+    <script src="shop.js"></script>

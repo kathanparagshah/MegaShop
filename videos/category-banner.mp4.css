@@ -1,0 +1,40 @@
+/* CSS Animation to simulate video for category banner */
+@keyframes slideshow {
+    0%, 20% {
+        background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
+        background-position: center;
+    }
+    25%, 45% {
+        background-image: url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
+        background-position: center;
+    }
+    50%, 70% {
+        background-image: url('https://images.unsplash.com/photo-1556740714-a8395b3bf30f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
+        background-position: center;
+    }
+    75%, 95% {
+        background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
+        background-position: center;
+    }
+    100% {
+        background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
+        background-position: center;
+    }
+}
+
+.category-banner-video {
+    animation: slideshow 20s infinite;
+    background-size: cover;
+    transition: background 1s ease-in-out;
+}
+
+/* Add a subtle zoom effect */
+@keyframes zoom {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.category-banner-video {
+    animation: slideshow 20s infinite, zoom 15s infinite;
+}

@@ -1,0 +1,89 @@
+Category,Subcategory,Product ID,Product Name,Description,Price,Rating,Stock Status,Image URL
+
+# Electronics
+Smartphones,E001,iPhone 13 Pro,Latest Apple smartphone with A15 Bionic chip and Pro camera system,999.99,4.8,In Stock,https://example.com/images/iphone13pro.jpg
+Smartphones,E002,Samsung Galaxy S21,5G smartphone with 120Hz display and 8K video,799.99,4.7,In Stock,https://example.com/images/galaxys21.jpg
+Smartphones,E003,Google Pixel 6,Google's flagship phone with custom Tensor chip,699.99,4.6,In Stock,https://example.com/images/pixel6.jpg
+Smartphones,E004,OnePlus 9 Pro,Flagship killer with Hasselblad camera system,899.99,4.5,In Stock,https://example.com/images/oneplus9pro.jpg
+Smartphones,E005,Xiaomi Mi 11,Snapdragon 888 powered smartphone with 108MP camera,749.99,4.4,In Stock,https://example.com/images/mi11.jpg
+Laptops,E006,MacBook Pro 16",Apple M1 Pro chip with 16-inch Liquid Retina XDR display,2399.99,4.9,In Stock,https://example.com/images/macbookpro16.jpg
+Laptops,E007,Dell XPS 15,Premium Windows laptop with InfinityEdge display,1799.99,4.7,In Stock,https://example.com/images/dellxps15.jpg
+Laptops,E008,HP Spectre x360,Convertible laptop with gem-cut design,1399.99,4.6,In Stock,https://example.com/images/spectrex360.jpg
+Laptops,E009,Lenovo ThinkPad X1 Carbon,Business laptop with military-grade durability,1599.99,4.8,In Stock,https://example.com/images/thinkpadx1.jpg
+Laptops,E010,ASUS ROG Zephyrus G14,Gaming laptop with AMD Ryzen 9 and RTX graphics,1499.99,4.7,In Stock,https://example.com/images/zephyrusg14.jpg
+TVs,E011,LG OLED C1 65",4K OLED TV with perfect blacks and Dolby Vision,1999.99,4.9,In Stock,https://example.com/images/lgoled65.jpg
+TVs,E012,Samsung QN90A 55",Neo QLED 4K TV with mini-LED technology,1499.99,4.8,In Stock,https://example.com/images/samsungqn90a.jpg
+TVs,E013,Sony A80J 55",OLED TV with cognitive processor XR,1799.99,4.7,In Stock,https://example.com/images/sonya80j.jpg
+TVs,E014,TCL 6-Series 65",QLED TV with mini-LED and Roku OS,999.99,4.5,In Stock,https://example.com/images/tcl6series.jpg
+TVs,E015,Hisense U8G 55",ULED TV with quantum dot technology,899.99,4.4,In Stock,https://example.com/images/hisenseu8g.jpg
+Audio,E016,Sony WH-1000XM4,Wireless noise-canceling headphones with 30-hour battery,349.99,4.8,In Stock,https://example.com/images/sonywh1000xm4.jpg
+Audio,E017,Apple AirPods Pro,Wireless earbuds with active noise cancellation,249.99,4.7,In Stock,https://example.com/images/airpodspro.jpg
+Audio,E018,Bose QuietComfort 45,Premium noise-canceling headphones with comfortable fit,329.99,4.7,In Stock,https://example.com/images/boseqc45.jpg
+Audio,E019,Sonos One,Smart speaker with rich sound and voice control,199.99,4.6,In Stock,https://example.com/images/sonosone.jpg
+Audio,E020,JBL Flip 6,Portable Bluetooth speaker with waterproof design,129.99,4.5,In Stock,https://example.com/images/jblflip6.jpg
+
+# Fashion
+Men's Clothing,F001,Classic Oxford Shirt,Premium cotton button-down shirt in various colors,59.99,4.6,In Stock,https://example.com/images/oxfordshirt.jpg
+Men's Clothing,F002,Slim-Fit Chino Pants,Versatile cotton chinos with stretch comfort,49.99,4.5,In Stock,https://example.com/images/chinopants.jpg
+Men's Clothing,F003,Wool Blend Blazer,Tailored single-breasted blazer for formal occasions,149.99,4.7,In Stock,https://example.com/images/woolblazer.jpg
+Men's Clothing,F004,Crewneck Sweater,Soft merino wool sweater for layering,79.99,4.4,In Stock,https://example.com/images/crewnecksweater.jpg
+Men's Clothing,F005,Denim Jacket,Classic denim trucker jacket with button closure,89.99,4.6,In Stock,https://example.com/images/denimjacket.jpg
+Women's Clothing,F006,Wrap Dress,Flattering wrap dress in floral print,79.99,4.7,In Stock,https://example.com/images/wrapdress.jpg
+Women's Clothing,F007,High-Waisted Jeans,Stretchy denim jeans with slim fit,69.99,4.6,In Stock,https://example.com/images/highwaistedjeans.jpg
+Women's Clothing,F008,Cashmere Cardigan,Luxurious soft cardigan with button front,129.99,4.8,In Stock,https://example.com/images/cashmerecardigan.jpg
+Women's Clothing,F009,Pleated Midi Skirt,Elegant pleated skirt with elastic waistband,59.99,4.5,In Stock,https://example.com/images/pleatedskirt.jpg
+Women's Clothing,F010,Silk Blouse,Refined silk blouse with relaxed fit,89.99,4.7,In Stock,https://example.com/images/silkblouse.jpg
+Footwear,F011,Men's Leather Sneakers,Minimalist leather sneakers with cushioned insole,99.99,4.6,In Stock,https://example.com/images/leathersneakers.jpg
+Footwear,F012,Women's Ankle Boots,Stylish suede ankle boots with block heel,119.99,4.7,In Stock,https://example.com/images/ankleboots.jpg
+Footwear,F013,Running Shoes,Lightweight performance running shoes with responsive cushioning,129.99,4.8,In Stock,https://example.com/images/runningshoes.jpg
+Footwear,F014,Canvas Slip-Ons,Casual canvas slip-on shoes for everyday wear,49.99,4.4,In Stock,https://example.com/images/canvasslipons.jpg
+Footwear,F015,Leather Loafers,Classic penny loafers with genuine leather upper,109.99,4.6,In Stock,https://example.com/images/leatherloafers.jpg
+Accessories,F016,Leather Belt,Full-grain leather belt with classic buckle,39.99,4.5,In Stock,https://example.com/images/leatherbelt.jpg
+Accessories,F017,Silk Scarf,Luxurious printed silk scarf for all seasons,49.99,4.6,In Stock,https://example.com/images/silkscarf.jpg
+Accessories,F018,Wool Beanie,Soft knitted beanie for cold weather,29.99,4.4,In Stock,https://example.com/images/woolbeanie.jpg
+Accessories,F019,Leather Wallet,Slim bifold wallet with multiple card slots,59.99,4.7,In Stock,https://example.com/images/leatherwallet.jpg
+Accessories,F020,Sunglasses,Polarized sunglasses with UV protection,79.99,4.5,In Stock,https://example.com/images/sunglasses.jpg
+
+# Home & Kitchen
+Furniture,H001,Sectional Sofa,Modular sectional sofa with chaise lounge,999.99,4.7,In Stock,https://example.com/images/sectionalsofa.jpg
+Furniture,H002,Dining Table Set,Solid wood dining table with 6 chairs,799.99,4.6,In Stock,https://example.com/images/diningtableset.jpg
+Furniture,H003,Queen Platform Bed,Modern platform bed with headboard,599.99,4.5,In Stock,https://example.com/images/platformbed.jpg
+Furniture,H004,Bookshelf,5-tier bookshelf with open design,249.99,4.4,In Stock,https://example.com/images/bookshelf.jpg
+Furniture,H005,Coffee Table,Mid-century modern coffee table with storage,349.99,4.6,In Stock,https://example.com/images/coffeetable.jpg
+Kitchen Appliances,H006,Stand Mixer,Professional stand mixer with multiple attachments,399.99,4.8,In Stock,https://example.com/images/standmixer.jpg
+Kitchen Appliances,H007,Espresso Machine,Semi-automatic espresso machine for home baristas,499.99,4.7,In Stock,https://example.com/images/espressomachine.jpg
+Kitchen Appliances,H008,Air Fryer,Digital air fryer with multiple cooking functions,129.99,4.6,In Stock,https://example.com/images/airfryer.jpg
+Kitchen Appliances,H009,Blender,High-performance blender for smoothies and soups,199.99,4.7,In Stock,https://example.com/images/blender.jpg
+Kitchen Appliances,H010,Toaster Oven,Convection toaster oven with digital controls,149.99,4.5,In Stock,https://example.com/images/toasteroven.jpg
+Bedding,H011,Duvet Cover Set,100% cotton duvet cover with 2 pillow shams,99.99,4.6,In Stock,https://example.com/images/duvetcover.jpg
+Bedding,H012,Memory Foam Pillow,Contour memory foam pillow for neck support,59.99,4.7,In Stock,https://example.com/images/memoryfoampillow.jpg
+Bedding,H013,Egyptian Cotton Sheets,Luxury sheet set with 800 thread count,129.99,4.8,In Stock,https://example.com/images/cottonsheets.jpg
+Bedding,H014,Weighted Blanket,Therapeutic weighted blanket for better sleep,89.99,4.6,In Stock,https://example.com/images/weightedblanket.jpg
+Bedding,H015,Mattress Topper,Gel memory foam mattress topper for added comfort,79.99,4.5,In Stock,https://example.com/images/mattresstopper.jpg
+Home Decor,H016,Area Rug,Patterned area rug for living spaces,199.99,4.5,In Stock,https://example.com/images/arearug.jpg
+Home Decor,H017,Throw Pillows,Decorative throw pillows with removable covers (set of 2),39.99,4.4,In Stock,https://example.com/images/throwpillows.jpg
+Home Decor,H018,Wall Art,Abstract canvas wall art for modern homes,89.99,4.6,In Stock,https://example.com/images/wallart.jpg
+Home Decor,H019,Table Lamp,Ceramic table lamp with fabric shade,69.99,4.5,In Stock,https://example.com/images/tablelamp.jpg
+Home Decor,H020,Curtains,Blackout curtains with thermal insulation (pair),59.99,4.7,In Stock,https://example.com/images/curtains.jpg
+
+# Beauty
+Skincare,B001,Facial Cleanser,Gentle foaming cleanser for all skin types,24.99,4.6,In Stock,https://example.com/images/facialcleanser.jpg
+Skincare,B002,Vitamin C Serum,Brightening serum with 20% vitamin C,39.99,4.7,In Stock,https://example.com/images/vitaminc.jpg
+Skincare,B003,Moisturizer,Hydrating face cream with hyaluronic acid,29.99,4.5,In Stock,https://example.com/images/moisturizer.jpg
+Skincare,B004,Retinol Cream,Anti-aging night cream with retinol,49.99,4.8,In Stock,https://example.com/images/retinolcream.jpg
+Skincare,B005,Sunscreen,Broad-spectrum SPF 50 sunscreen for face,19.99,4.6,In Stock,https://example.com/images/sunscreen.jpg
+Makeup,B006,Foundation,Long-wearing liquid foundation with medium coverage,34.99,4.7,In Stock,https://example.com/images/foundation.jpg
+Makeup,B007,Eyeshadow Palette,Neutral eyeshadow palette with 12 shades,44.99,4.8,In Stock,https://example.com/images/eyeshadowpalette.jpg
+Makeup,B008,Mascara,Volumizing and lengthening mascara,19.99,4.6,In Stock,https://example.com/images/mascara.jpg
+Makeup,B009,Lipstick,Creamy matte lipstick in various shades,24.99,4.5,In Stock,https://example.com/images/lipstick.jpg
+Makeup,B010,Blush,Powder blush for a natural flush,29.99,4.4,In Stock,https://example.com/images/blush.jpg
+Haircare,B011,Shampoo,Sulfate-free shampoo for all hair types,14.99,4.5,In Stock,https://example.com/images/shampoo.jpg
+Haircare,B012,Conditioner,Moisturizing conditioner for smooth hair,14.99,4.5,In Stock,https://example.com/images/conditioner.jpg
+Haircare,B013,Hair Oil,Nourishing oil for dry and damaged hair,24.99,4.7,In Stock,https://example.com/images/hairoil.jpg
+Haircare,B014,Styling Cream,Medium-hold styling cream for natural look,19.99,4.4,In Stock,https://example.com/images/stylingcream.jpg
+Haircare,B015,Dry Shampoo,Refreshing dry shampoo for between washes,16.99,4.6,In Stock,https://example.com/images/dryshampoo.jpg
+Fragrance,B016,Women's Perfume,Floral eau de parfum with long-lasting scent,79.99,4.8,In Stock,https://example.com/images/womenperfume.jpg
+Fragrance,B017,Men's Cologne,Woody and spicy eau de toilette,69.99,4.7,In Stock,https://example.com/images/mencologne.jpg
+Fragrance,B018,Unisex Fragrance,Fresh and citrusy unisex perfume,89.99,4.6,In Stock,https://example.com/images/unisexfragrance.jpg
+Fragrance,B019,Body Mist,Light and refreshing body mist,19.99,4.4,In Stock,https://example.com/images/bodymist.jpg
+Fragrance,B020,Scented Candle,Luxury scented candle with 50-hour burn time,39.99,4.7,In Stock,https://example.com/images/scentedcandle.jpg
